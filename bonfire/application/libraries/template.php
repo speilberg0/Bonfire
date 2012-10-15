@@ -231,6 +231,9 @@ class Template
 
 	//--------------------------------------------------------------------
 
+	public static function viewData() {
+		return self::$data;
+	}
 
 	/**
 	 * Renders out the specified layout, which starts the process
@@ -263,9 +266,9 @@ class Template
 
 		// Grab our current view name, based on controller/method
 		// which routes to views/controller/method.
-		
+
 		if (empty(self::$current_view))
-		{			
+		{
 			self::$current_view =  self::$ci->router->class . '/' . self::$ci->router->method;
 		}
 
@@ -881,8 +884,8 @@ EOF;
 					{
 						self::$ci->load->library('parser');
 					}
-					
-//					$output = self::$ci->load->_ci_load(array('_ci_path' => $view.'.php','_ci_vars' => $data,'_ci_return' => TRUE));					
+
+//					$output = self::$ci->load->_ci_load(array('_ci_path' => $view.'.php','_ci_vars' => $data,'_ci_return' => TRUE));
 
 					if (count($data) > 0)
 					{

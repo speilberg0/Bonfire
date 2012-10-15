@@ -46,7 +46,8 @@ class CI_Profiler {
 										'config',
 										'files',
 										'console',
-										'userdata'
+										'userdata',
+										'exposed'
 										);
 	protected $_sections = array();		// Stores _compile_x() results
 
@@ -434,6 +435,15 @@ class CI_Profiler {
 		sort($files);
 
 		return $files;
+	}
+
+	public function _compile_exposed()
+	{
+		$exposed = Template::viewData();
+		if (empty($exposed)) {
+			echo "empty";
+		}
+		return $exposed;
 	}
 
 	//--------------------------------------------------------------------
